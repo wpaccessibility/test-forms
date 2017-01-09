@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8" />
+
+<title>Input type=number</title>
+
+<meta name="robots" content="noindex, nofollow">
+
+<style type="text/css">
+	body {
+		font-family: arial, sans-serif;
+		line-height: 2;
+		padding: 1% 5%;
+	}
+</style>
+
+<body>
+
+<h1>Input type-number</h1>
+
+<ul>
+	<li>1: Your age = explicit label)</li>
+	<li>2: Your age = implicit label without for/id relation</li>
+	<li>3: Your age = implicit label with for/id relation</li>
+</ul>
+
+<form>
+
+	<label for="input-ext-age">1: Your age</label>
+	<input id="input-ext-age" name="your-age" type="number" min="0" step="1" value="25" />
+	<br />
+
+	<label>
+		2: Your age
+		<input name="your-age" type="number" min="0" step="1" value="25" />
+	</label>
+	<br />
+
+	<label for="your-age3">
+		3: Your age
+		<input id="your-age3" name="your-age"  type="number" min="0" step="1" value="25" />
+	</label>
+	<br />
+
+</form>
+
+<a href="index.html">Back to overview page</a>
+
+</body>
+
+</html>
