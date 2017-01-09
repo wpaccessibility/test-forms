@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<meta charset="UTF-8" />
+
+	<title>Input</title>
+
+	<meta name="robots" content="noindex, nofollow">
+
+	<style type="text/css">
+		body {
+			font-family: arial, sans-serif;
+			line-height: 2;
+			padding: 1% 5%;
+		}
+	</style>
+
+<body>
+
+<h1>Input element</h1>
+
+<form>
+
+	<fieldset>
+
+		<legend>1: Explicit label</legend>
+
+		<label for="input-ext-first">Your first name</label>
+		<input type="text" id="input-ext-first" name="your-first-name">
+		<br />
+
+		<label for="input-ext-middle">Your middle name</label>
+		<input type="text" id="input-ext-middle" name="your-middle-name">
+		<br />
+
+		<label for="input-ext-last">Your last name</label>
+		<input type="text" id="input-ext-last" name="your-last-name">
+
+	</fieldset>
+
+	<fieldset>
+
+		<legend>2: Implicit label without for/id relation</legend>
+
+		<label>Your first name</label>
+		<input type="text" name="your-first-name">
+		<br />
+
+		<label>Your middle name</label>
+		<input type="text" name="your-middle-name">
+		<br />
+
+		<label>Your last name</label>
+		<input type="text" name="your-last-name">
+
+	</fieldset>
+
+	<fieldset>
+
+		<legend>3: Implicit label with for/id relation</legend>
+
+		<label for="input-ext-first3">
+			<input type="text" id="input-ext-first3" name="your-first-name">
+			Your first name
+		</label>
+		<br />
+
+		<label for="input-ext-middle3">
+			<input type="text" id="input-ext-middle3" name="your-middle-name">
+			Your middle name
+		</label>
+		<br />
+
+		<label for="input-ext-last3">
+			<input type="text" id="input-ext-last3" name="your-last-name">
+			Your last name
+		</label>
+
+	</fieldset>
+
+</form>
+
+<a href="index.html">Back to overview page</a>
+
+</body>
+
+</html>
