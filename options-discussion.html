@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8" />
+
+<title>Discussion Settings</title>
+
+<meta name="robots" content="noindex, nofollow">
+
+<style type="text/css">
+	body {
+		font-family: arial, sans-serif;
+		line-height: 2;
+		padding: 1% 5%;
+	}
+
+	input,
+	textarea,
+	select {
+		font-family: arial, sans-serif;
+		font-size: 1rem;
+	}
+
+	fieldset,
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="number"],
+	textarea,
+	select {
+		display: block;
+		margin-bottom: 1em;
+	}
+
+	.description {
+		margin: -1em 0 1em;
+	}
+
+	legend + .description,
+	input[type="checkbox"] + label + .description {
+		margin: -0.5em 0 1em;
+	}
+
+	.regular-text {
+		width: 25em;
+	}
+
+	.large-text {
+		width: 99%;
+	}
+
+	a[href="index.html"] {
+		display: inline-block;
+		margin: 2em 0 1em;
+	}
+</style>
+
+<body>
+
+<h1>Discussion Settings</h1>
+
+<form>
+
+	<fieldset>
+		<legend>Default article settings</legend>
+
+		<p class="description">These settings may be overridden for individual articles.</p>
+
+		<input name="default_pingback_flag" type="checkbox" id="default_pingback_flag" value="1">
+		<label for="default_pingback_flag">Attempt to notify any blogs linked to from the article</label><br>
+
+		<input name="default_ping_status" type="checkbox" id="default_ping_status" value="open">
+		<label for="default_ping_status">Allow link notifications from other blogs (pingbacks and trackbacks) on new articles</label><br>
+
+		<input name="default_comment_status" type="checkbox" id="default_comment_status" value="open">
+		<label for="default_comment_status">Allow people to post comments on new articles</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Other comment settings</legend>
+
+		<input type="checkbox" name="require_name_email" id="require_name_email" value="1">
+		<label for="require_name_email">Comment author must fill out name and email</label><br>
+
+		<input name="comment_registration" type="checkbox" id="comment_registration" value="1">
+		<label for="comment_registration">Users must be registered and logged in to comment</label><br>
+
+		<input name="close_comments_for_old_posts" type="checkbox" id="close_comments_for_old_posts" value="1">
+		<label for="close_comments_for_old_posts">Automatically close comments on old articles: enter the number of days in the field below</label><br>
+
+		<label for="close_comments_days_old">Number of days after which comments will be automatically closed</label>
+		<input name="close_comments_days_old" type="number" min="0" step="1" id="close_comments_days_old" value="14" class="small-text">
+
+		<input name="thread_comments" type="checkbox" id="thread_comments" value="1">
+		<label for="thread_comments">Enable threaded (nested) comments: set the number of levels in the field below</label><br>
+
+		<label for="thread_comments_depth">Nested comments levels deep</label>
+		<select name="thread_comments_depth" id="thread_comments_depth">
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5" selected="selected">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+
+		<input name="page_comments" type="checkbox" id="page_comments" value="1">
+		<label for="page_comments">Break comments into pages</label><br>
+
+		<label for="comments_per_page">Number of top level comments per page</label>
+		<input name="comments_per_page" type="number" step="1" min="0" id="comments_per_page" value="50" class="small-text">
+
+		<label for="default_comments_page">Comments page displayed by default</label>
+		<select name="default_comments_page" id="default_comments_page">
+			<option value="newest" selected="selected">last page</option>
+			<option value="oldest">first page</option>
+		</select>
+
+		<label for="comment_order">Comments to display at the top of each page</label>
+		<select name="comment_order" id="comment_order">
+			<option value="asc" selected="selected">older comments</option>
+			<option value="desc">newer comments</option>
+		</select>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Email me whenever</legend>
+
+		<input name="comments_notify" type="checkbox" id="comments_notify" value="1">
+		<label for="comments_notify">Anyone posts a comment</label><br>
+
+		<input name="moderation_notify" type="checkbox" id="moderation_notify" value="1">
+		<label for="moderation_notify">A comment is held for moderation</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Before a comment appears</legend>
+
+		<input name="comment_moderation" type="checkbox" id="comment_moderation" value="1">
+		<label for="comment_moderation">Comment must be manually approved</label><br>
+
+		<input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1">
+		<label for="comment_whitelist">Comment author must have a previously approved comment</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Comment Moderation</legend>
+
+		<label for="comment_max_links">Number of links in a comment after which it will be held in the moderation queue</label>
+		<input name="comment_max_links" type="number" step="1" min="0" id="comment_max_links" aria-describedby="comment-max-link-description" value="2" class="small-text">
+		<p class="description" id="comment-max-link-description">A common characteristic of comment spam is a large number of hyperlinks.</p>
+
+		<label for="moderation_keys">Moderation words</label>
+		<textarea name="moderation_keys" rows="10" cols="50" id="moderation_keys" aria-describedby="moderation-keys-description" class="large-text code"></textarea>
+		<p class="description" id="moderation-keys-description">When a comment contains any of these words in its content, name, URL, email, or IP, it will be held in the <a href="edit-comments.php?comment_status=moderated">moderation queue</a>. One word or IP per line. It will match inside words, so “press” will match “WordPress”.</p>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Comment Blacklist</legend>
+
+		<label for="blacklist_keys">Blacklist words</label>
+		<textarea name="blacklist_keys" rows="10" cols="50" id="blacklist_keys" aria-describedby="blacklist-keys-description" class="large-text code"></textarea>
+		<p class="description" id="blacklist-keys-description">When a comment contains any of these words in its content, name, URL, email, or IP, it will be put in the trash. One word or IP per line. It will match inside words, so “press” will match “WordPress”.</p>
+
+	</fieldset>
+
+	<h2 class="title">Avatars</h2>
+
+	<p>An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site.</p>
+
+	<fieldset>
+		<legend>Avatar Display</legend>
+
+		<input type="checkbox" id="show_avatars" name="show_avatars" value="1">
+		<label for="show_avatars">Show Avatars</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Maximum Rating</legend>
+
+		<input type="radio" name="avatar_rating" id="avatar-rating-01" value="G" checked="checked">
+		<label for="avatar-rating-01">G — Suitable for all audiences</label><br>
+
+		<input type="radio" name="avatar_rating" id="avatar-rating-02" value="PG">
+		<label for="avatar-rating-02">PG — Possibly offensive, usually for audiences 13 and above</label><br>
+
+		<input type="radio" name="avatar_rating" id="avatar-rating-03" value="R">
+		<label for="avatar-rating-03">R — Intended for adult audiences above 17</label><br>
+
+		<input type="radio" name="avatar_rating" id="avatar-rating-04" value="X">
+		<label for="avatar-rating-04">X — Even more mature than above</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Default Avatar</legend>
+
+		<p class="description">For users without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address.</p>
+
+		<input type="radio" name="avatar_default" id="avatar_mystery" value="mystery" checked="checked">
+		<label for="avatar_mystery"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=mm&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=mm&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Mystery Person</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_blank" value="blank">
+		<label for="avatar_blank"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=blank&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=blank&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Blank</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_gravatar_default" value="gravatar_default">
+		<label for="avatar_gravatar_default"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Gravatar Logo</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_identicon" value="identicon">
+		<label for="avatar_identicon"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=identicon&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=identicon&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Identicon (Generated)</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_wavatar" value="wavatar">
+		<label for="avatar_wavatar"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=wavatar&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=wavatar&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Wavatar (Generated)</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_monsterid" value="monsterid">
+		<label for="avatar_monsterid"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=monsterid&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=monsterid&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> MonsterID (Generated)</label><br>
+
+		<input type="radio" name="avatar_default" id="avatar_retro" value="retro">
+		<label for="avatar_retro"><img alt="" src="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=32&amp;d=retro&amp;f=y&amp;r=g" srcset="http://0.gravatar.com/avatar/64749b223e4c4a0c01b50ac966113617?s=64&amp;d=retro&amp;f=y&amp;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32"> Retro (Generated)</label>
+
+	</fieldset>
+
+</form>
+
+<a href="index.html">Back to overview page</a>
+
+</body>
+
+</html>
