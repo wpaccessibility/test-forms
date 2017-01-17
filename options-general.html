@@ -13,11 +13,44 @@
 		line-height: 2;
 		padding: 1% 5%;
 	}
+
 	input,
 	textarea,
 	select {
 		font-family: arial, sans-serif;
 		font-size: 1rem;
+	}
+
+	fieldset,
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="number"],
+	textarea,
+	select {
+		display: block;
+		margin-bottom: 1em;
+	}
+
+	.description {
+		margin: -1em 0 1em;
+	}
+
+	input[type="checkbox"] + label + .description {
+		margin: -0.5em 0 1em;
+	}
+
+	.regular-text {
+		width: 25em;
+	}
+
+	.large-text {
+		width: 99%;
+	}
+
+	a[href="index.html"] {
+		display: inline-block;
+		margin: 2em 0 1em;
 	}
 </style>
 
@@ -30,16 +63,12 @@
 	<label for="blogname">Site Title</label>
 	<input name="blogname" type="text" id="blogname" value="" class="regular-text">
 
-	<br class="to-be-removed">
-
 	<label for="blogdescription">Tagline</label>
 	<input name="blogdescription" type="text" id="blogdescription" aria-describedby="tagline-description" value="" class="regular-text">
 	<p class="description" id="tagline-description">In a few words, explain what this site is about.</p>
 
 	<label for="siteurl">WordPress Address (URL)</label>
 	<input name="siteurl" type="url" id="siteurl" value="" class="regular-text code">
-
-	<br class="to-be-removed">
 
 	<label for="home">Site Address (URL)</label>
 	<input name="home" type="url" id="home" aria-describedby="home-description" value="" class="regular-text code">
@@ -49,10 +78,11 @@
 	<input name="admin_email" type="email" id="admin_email" aria-describedby="admin-email-description" value="" class="regular-text ltr">
 	<p class="description" id="admin-email-description">This address is used for admin purposes, like new user notification.</p>
 
-	<input name="users_can_register" type="checkbox" id="users_can_register" value="1">
-	<label for="users_can_register">Anyone can register</label>
-
-	<br class="to-be-removed">
+	<fieldset>
+		<legend>Membership</legend>
+		<input name="users_can_register" type="checkbox" id="users_can_register" value="1">
+		<label for="users_can_register">Anyone can register</label>
+	</fieldset>
 
 	<label for="default_role">New User Default Role</label>
 	<select name="default_role" id="default_role">
@@ -62,8 +92,6 @@
 		<option value="editor">Editor</option>
 		<option value="administrator">Administrator</option>
 	</select>
-
-	<br class="to-be-removed">
 
 	<label for="WPLANG">Site Language</label>
 	<select name="WPLANG" id="WPLANG">
@@ -160,8 +188,6 @@
 			<option value="zh_CN" lang="zh">简体中文</option>
 		</optgroup>
 	</select>
-
-	<br class="to-be-removed">
 
 	<label for="timezone_string">Timezone</label>
 	<select id="timezone_string" name="timezone_string" aria-describedby="timezone-description">
@@ -673,7 +699,7 @@
 		<span id="local-time">Local time is <code>2017-01-16 18:54:13</code>.</span>
 	</p>
 	<p class="timezone-info">
-		<span>This timezone is currently in standard time.<br>Daylight saving time begins on: <code>March 26, 2017 1:00 am</code>.</span>
+		<span>This timezone is currently in standard time. Daylight saving time begins on: <code>March 26, 2017 1:00 am</code>.</span>
 	</p>
 
 	<fieldset>
@@ -692,12 +718,11 @@
 		<label for="date-format-04"><span class="date-time-text format-i18n">16/01/2017</span><code>d/m/Y</code></label><br>
 
 		<input type="radio" name="date_format" id="date-format-05" id="date_format_custom_radio" value="\c\u\s\t\o\m">
-		<label for="date-format-05"><span class="date-time-text date-time-custom-text">Custom:<span class="screen-reader-text"> enter a custom date format in the field below</span></span></label><br>
+		<label for="date-format-05"><span class="date-time-text date-time-custom-text">Custom: enter a custom date format in the field below</span></label><br>
 
-		<label for="date_format_custom" class="screen-reader-text">Custom date format:</label>
-		<input type="text" name="date_format_custom" id="date_format_custom" value="F j, Y" class="small-text">
-
-		<p><span class="screen-reader-text">Example: </span> <span class="example">January 16, 2017</span><span class="spinner"></span></p>
+		<label for="date_format_custom">Custom date format:</label>
+		<input type="text" name="date_format_custom" id="date_format_custom" aria-describedby="date-format-custom-description" value="F j, Y" class="small-text">
+		<p class="description" id="date-format-custom-description">Example: <span class="example">January 16, 2017</span><span class="spinner"></span></p>
 	</fieldset>
 
 	<fieldset>
@@ -713,12 +738,11 @@
 		<label for="time-format-03"><span class="date-time-text format-i18n">18:54</span><code>H:i</code></label><br>
 
 		<input type="radio" name="time_format" id="time-format-04" id="time_format_custom_radio" value="\c\u\s\t\o\m">
-		<label for="time-format-04"><span class="date-time-text date-time-custom-text">Custom:<span class="screen-reader-text"> enter a custom time format in the following field</span></span></label><br>
+		<label for="time-format-04"><span class="date-time-text date-time-custom-text">Custom: enter a custom time format in the field below</span></label><br>
 
-		<label for="time_format_custom" class="screen-reader-text">Custom time format:</label>
-		<input type="text" name="time_format_custom" id="time_format_custom" value="g:i a" class="small-text">
-
-		<p><span class="screen-reader-text">Example: </span> <span class="example">6:54 pm</span><span class="spinner"></span></p>
+		<label for="time_format_custom">Custom time format:</label>
+		<input type="text" name="time_format_custom" id="time_format_custom" aria-describedby="time-format-custom-description" value="g:i a" class="small-text">
+		<p class="description" id="time-format-custom-description">Example: <span class="example">6:54 pm</span><span class="spinner"></span></p>
 		<p class="date-time-doc"><a href="https://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.</p>
 	</fieldset>
 
@@ -732,6 +756,28 @@
 		<option value="5">Friday</option>
 		<option value="6">Saturday</option>
 	</select>
+
+</form>
+
+<h2>Other settings</h2>
+
+<form>
+
+	<label for="posts_per_page">Number of posts shown on each blog page</label>
+	<input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="10" class="small-text">
+
+	<label for="posts_per_rss">Number of most recent items shown on Syndication feeds</label>
+	<input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="10" class="small-text">
+
+	<fieldset>
+		<legend>Search Engine Visibility</legend>
+		<input name="blog_public" type="checkbox" id="blog_public" aria-describedby="blog-public-description" value="0">
+		<label for="blog_public">Discourage search engines from indexing this site</label>
+		<p class="description" id="blog-public-description">It is up to search engines to honor this request.</p>
+	</fieldset>
+
+	<label for="ping_sites">When you publish a new post, WordPress automatically notifies the following site update services. For more about this, see <a href="https://codex.wordpress.org/Update_Services">Update Services</a> on the Codex. Separate multiple service URLs with line breaks.</label>
+	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3">http://rpc.pingomatic.com/</textarea>
 
 </form>
 
