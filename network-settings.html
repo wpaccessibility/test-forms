@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+
+<title>General Settings</title>
+
+<meta name="robots" content="noindex, nofollow">
+
+<style type="text/css">
+	body {
+		font-family: arial, sans-serif;
+		line-height: 2;
+		padding: 1% 5%;
+	}
+
+	input,
+	textarea,
+	select {
+		font-family: arial, sans-serif;
+		font-size: 1rem;
+	}
+
+	fieldset,
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="number"],
+	textarea,
+	select {
+		display: block;
+		margin-bottom: 1em;
+	}
+
+	legend + .description,
+	.description {
+		margin: -1em 0 1em;
+	}
+
+	input[type="checkbox"] + label + .description {
+		margin: -0.5em 0 1em;
+	}
+
+	.regular-text {
+		width: 25em;
+	}
+
+	.large-text {
+		width: 99%;
+	}
+
+	a[href="index.html"] {
+		display: inline-block;
+		margin: 2em 0 1em;
+	}
+</style>
+
+</head>
+<body>
+
+
+<h1>Network Settings</h1>
+
+<form>
+
+	<h2>Operational Settings</h2>
+
+
+	<label for="site_name">Network Title</label>
+	<input name="site_name" type="text" id="site_name" class="regular-text" value="wordpress-multi-stable Sites" />
+
+	<label for="admin_email">Network Admin Email</label>
+	<input name="admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="" />
+	<p class="description" id="admin-email-desc">
+		This email address will receive notifications. Registration and support emails will also come from this address.
+	</p>
+
+
+
+	<h2>Registration Settings</h2>
+
+	<fieldset>
+		<legend class="screen-reader-text">New registrations settings</legend>
+		<label><input name="registration" type="radio" id="registration1" value="none" checked='checked' /> Registration is disabled.</label><br />
+		<label><input name="registration" type="radio" id="registration2" value="user" /> User accounts may be registered.</label><br />
+		<label><input name="registration" type="radio" id="registration3" value="blog" /> Logged in users may register new sites.</label><br />
+		<label><input name="registration" type="radio" id="registration4" value="all" /> Both sites and user accounts can be registered.</label>
+		<p class="description">If registration is disabled, please set <code>NOBLOGREDIRECT</code> in <code>wp-config.php</code> to a URL you will redirect visitors to if they visit a non-existent site.</p>
+	</fieldset>
+
+
+
+	<label>
+		<input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes" checked='checked' />
+		Send the network admin an email notification every time someone registers a site or user account.
+	</label><br>
+
+
+	<label>
+		<input name="add_new_users" type="checkbox" id="add_new_users" value="1" />
+		Allow site administrators to add new users to their site via the "Users &rarr; Add New" page.
+	</label><br>
+
+
+	<label for="illegal_names">Banned Names</label>
+	<input name="illegal_names" type="text" id="illegal_names" aria-describedby="illegal-names-desc" class="large-text" value="www web root admin main invite administrator files" size="45" />
+	<p class="description" id="illegal-names-desc">
+		Users are not allowed to register these sites. Separate names by spaces.
+	</p>
+
+
+
+	<label for="limited_email_domains">Limited Email Registrations</label>
+	<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5"></textarea>
+	<p class="description" id="limited-email-domains-desc">
+		If you want to limit site registrations to certain domains. One domain per line.
+	</p>
+
+
+
+	<label for="banned_email_domains">Banned Email Domains</label>
+	<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5"></textarea>
+	<p class="description" id="banned-email-domains-desc">
+		If you want to ban domains from site registrations. One domain per line.
+	</p>
+
+
+	<h2>New Site Settings</h2>
+
+	<label for="welcome_email">Welcome Email</label>
+	<textarea name="welcome_email" id="welcome_email" aria-describedby="welcome-email-desc" rows="5" cols="45" class="large-text">
+Howdy USERNAME,
+
+Your new SITE_NAME site has been successfully set up at:
+BLOG_URL
+
+You can log in to the administrator account with the following information:
+
+Username: USERNAME
+Password: PASSWORD
+Log in here: BLOG_URLwp-login.php
+
+We hope you enjoy your new site. Thanks!
+
+--The Team @ SITE_NAME</textarea>
+	<p class="description" id="welcome-email-desc">
+		The welcome email sent to new site owners.
+	</p>
+
+
+
+	<label for="welcome_user_email">Welcome User Email</label>
+	<textarea name="welcome_user_email" id="welcome_user_email" aria-describedby="welcome-user-email-desc" rows="5" cols="45" class="large-text">
+Howdy USERNAME,
+
+Your new account is set up.
+
+You can log in with the following information:
+Username: USERNAME
+Password: PASSWORD
+LOGINLINK
+
+Thanks!
+
+--The Team @ SITE_NAME</textarea>
+	<p class="description" id="welcome-user-email-desc">
+		The welcome email sent to new users.
+	</p>
+
+
+	<label for="first_post">First Post</label>
+	<textarea name="first_post" id="first_post" aria-describedby="first-post-desc" rows="5" cols="45" class="large-text">
+Welcome to %s. This is your first post. Edit or delete it, then start blogging!</textarea>
+	<p class="description" id="first-post-desc">
+		The first post on a new site.
+	</p>
+
+
+	<label for="first_page">First Page</label>
+	<textarea name="first_page" id="first_page" aria-describedby="first-page-desc" rows="5" cols="45" class="large-text"></textarea>
+	<p class="description" id="first-page-desc">
+		The first page on a new site.
+	</p>
+
+
+
+	<label for="first_comment">First Comment</label>
+	<textarea name="first_comment" id="first_comment" aria-describedby="first-comment-desc" rows="5" cols="45" class="large-text"></textarea>
+	<p class="description" id="first-comment-desc">
+		The first comment on a new site.
+	</p>
+
+
+
+	<label for="first_comment_author">First Comment Author</label>
+	<input type="text" size="40" name="first_comment_author" id="first_comment_author" aria-describedby="first-comment-author-desc" value="" />
+	<p class="description" id="first-comment-author-desc">
+		The author of the first comment on a new site.
+	</p>
+
+
+	<label for="first_comment_email">First Comment Email</label>
+	<input type="text" size="40" name="first_comment_email" id="first_comment_email" aria-describedby="first-comment-email-desc" value="" />
+	<p class="description" id="first-comment-email-desc">
+		The email address of the first comment author on a new site.
+	</p>
+
+
+
+	<label for="first_comment_url">First Comment URL</label>
+	<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="" />
+	<p class="description" id="first-comment-url-desc">
+		The URL for the first comment on a new site.
+	</p>
+
+
+
+	<h2>Upload Settings</h2>
+
+	<label>
+		<input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"/>
+		Limit total size of files uploaded to </label><label><input name="blog_upload_space" type="number" min="0" style="width: 100px" id="blog_upload_space" aria-describedby="blog-upload-space-desc" value="100" /> MB
+	</label><br />
+	<p class="screen-reader-text" id="blog-upload-space-desc">
+		Size in megabytes
+	</p>
+
+
+
+	<label for="upload_filetypes">Upload file types</label>
+	<input name="upload_filetypes" type="text" id="upload_filetypes" aria-describedby="upload-filetypes-desc" class="large-text" value="jpg jpeg png gif mov avi mpg 3gp 3g2 midi mid pdf doc ppt odt pptx docx pps ppsx xls xlsx key mp3 ogg wma m4a wav mp4 m4v webm ogv wmv flv" size="45" />
+	<p class="description" id="upload-filetypes-desc">
+		Allowed file types. Separate types by spaces.
+	</p>
+
+
+
+	<label for="fileupload_maxk">Max upload file size</label>
+	<input name="fileupload_maxk" type="number" min="0" style="width: 100px" id="fileupload_maxk" aria-describedby="fileupload-maxk-desc" value="1500" /> KB
+	<p class="screen-reader-text" id="fileupload-maxk-desc">
+		Size in kilobytes
+	</p>
+
+
+
+	<h2>Language Settings</h2>
+
+	<label for="WPLANG">Default Language</label>
+	<select name="WPLANG" id="WPLANG">
+		<optgroup label="Installed">
+			<option value="" lang="en" data-installed="1" selected='selected'>English (United States)</option>
+		</optgroup>
+		<optgroup label="Available">
+			<option value="af" lang="af">Afrikaans</option>
+			<option value="ar" lang="ar">العربية</option>
+			<option value="ary" lang="ar">العربية المغربية</option>
+			<option value="az" lang="az">Azərbaycan dili</option>
+			<option value="azb" lang="az">گؤنئی آذربایجان</option>
+			<option value="bg_BG" lang="bg">Български</option>
+			<option value="bn_BD" lang="bn">বাংলা</option>
+			<option value="bo" lang="bo">བོད་ཡིག</option>
+			<option value="bs_BA" lang="bs">Bosanski</option>
+			<option value="ca" lang="ca">Català</option>
+			<option value="ceb" lang="ceb">Cebuano</option>
+			<option value="cs_CZ" lang="cs">Čeština‎</option>
+			<option value="cy" lang="cy">Cymraeg</option>
+			<option value="da_DK" lang="da">Dansk</option>
+			<option value="de_CH_informal" lang="de">Deutsch (Schweiz, Du)</option>
+			<option value="de_DE_formal" lang="de">Deutsch (Sie)</option>
+			<option value="de_DE" lang="de">Deutsch</option>
+			<option value="de_CH" lang="de">Deutsch (Schweiz)</option>
+			<option value="el" lang="el">Ελληνικά</option>
+			<option value="en_NZ" lang="en">English (New Zealand)</option>
+			<option value="en_GB" lang="en">English (UK)</option>
+			<option value="en_AU" lang="en">English (Australia)</option>
+			<option value="en_ZA" lang="en">English (South Africa)</option>
+			<option value="en_CA" lang="en">English (Canada)</option>
+			<option value="eo" lang="eo">Esperanto</option>
+			<option value="es_AR" lang="es">Español de Argentina</option>
+			<option value="es_VE" lang="es">Español de Venezuela</option>
+			<option value="es_MX" lang="es">Español de México</option>
+			<option value="es_ES" lang="es">Español</option>
+			<option value="es_CO" lang="es">Español de Colombia</option>
+			<option value="es_CL" lang="es">Español de Chile</option>
+			<option value="es_PE" lang="es">Español de Perú</option>
+			<option value="es_GT" lang="es">Español de Guatemala</option>
+			<option value="et" lang="et">Eesti</option>
+			<option value="eu" lang="eu">Euskara</option>
+			<option value="fa_IR" lang="fa">فارسی</option>
+			<option value="fi" lang="fi">Suomi</option>
+			<option value="fr_CA" lang="fr">Français du Canada</option>
+			<option value="fr_FR" lang="fr">Français</option>
+			<option value="fr_BE" lang="fr">Français de Belgique</option>
+			<option value="gd" lang="gd">Gàidhlig</option>
+			<option value="gl_ES" lang="gl">Galego</option>
+			<option value="gu" lang="gu">ગુજરાતી</option>
+			<option value="haz" lang="haz">هزاره گی</option>
+			<option value="he_IL" lang="he">עִבְרִית</option>
+			<option value="hi_IN" lang="hi">हिन्दी</option>
+			<option value="hr" lang="hr">Hrvatski</option>
+			<option value="hu_HU" lang="hu">Magyar</option>
+			<option value="hy" lang="hy">Հայերեն</option>
+			<option value="id_ID" lang="id">Bahasa Indonesia</option>
+			<option value="is_IS" lang="is">Íslenska</option>
+			<option value="it_IT" lang="it">Italiano</option>
+			<option value="ja" lang="ja">日本語</option>
+			<option value="ka_GE" lang="ka">ქართული</option>
+			<option value="ko_KR" lang="ko">한국어</option>
+			<option value="lt_LT" lang="lt">Lietuvių kalba</option>
+			<option value="lv" lang="lv">Latviešu valoda</option>
+			<option value="mk_MK" lang="mk">Македонски јазик</option>
+			<option value="mr" lang="mr">मराठी</option>
+			<option value="ms_MY" lang="ms">Bahasa Melayu</option>
+			<option value="my_MM" lang="my">ဗမာစာ</option>
+			<option value="nb_NO" lang="nb">Norsk bokmål</option>
+			<option value="nl_BE" lang="nl">Nederlands (België)</option>
+			<option value="nl_NL" lang="nl">Nederlands</option>
+			<option value="nl_NL_formal" lang="nl">Nederlands (Formeel)</option>
+			<option value="nn_NO" lang="nn">Norsk nynorsk</option>
+			<option value="oci" lang="oc">Occitan</option>
+			<option value="pl_PL" lang="pl">Polski</option>
+			<option value="ps" lang="ps">پښتو</option>
+			<option value="pt_BR" lang="pt">Português do Brasil</option>
+			<option value="pt_PT" lang="pt">Português</option>
+			<option value="ro_RO" lang="ro">Română</option>
+			<option value="ru_RU" lang="ru">Русский</option>
+			<option value="sk_SK" lang="sk">Slovenčina</option>
+			<option value="sl_SI" lang="sl">Slovenščina</option>
+			<option value="sq" lang="sq">Shqip</option>
+			<option value="sr_RS" lang="sr">Српски језик</option>
+			<option value="sv_SE" lang="sv">Svenska</option>
+			<option value="szl" lang="szl">Ślōnskŏ gŏdka</option>
+			<option value="th" lang="th">ไทย</option>
+			<option value="tl" lang="tl">Tagalog</option>
+			<option value="tr_TR" lang="tr">Türkçe</option>
+			<option value="ug_CN" lang="ug">Uyƣurqə</option>
+			<option value="uk" lang="uk">Українська</option>
+			<option value="ur" lang="ur">اردو</option>
+			<option value="uz_UZ" lang="uz">O‘zbekcha</option>
+			<option value="vi" lang="vi">Tiếng Việt</option>
+			<option value="zh_TW" lang="zh">繁體中文</option>
+			<option value="zh_HK" lang="zh">香港中文版	</option>
+			<option value="zh_CN" lang="zh">简体中文</option>
+		</optgroup>
+	</select>
+
+
+	<h2>Menu Settings</h2>
+
+	<fieldset>
+		<legend>Enable administration menus</legend>
+		<label>
+			<input type='checkbox' name='menu_items[plugins]' value='1' />
+			Plugins
+		</label>
+	</fieldset>
+
+</form>
+
+
+
+
+<a href="index.html">Back to overview page</a>
+
+</body>
+
+</html>
