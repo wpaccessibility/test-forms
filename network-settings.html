@@ -33,11 +33,11 @@
 		margin-bottom: 1em;
 	}
 
-	legend + .description,
 	.description {
 		margin: -1em 0 1em;
 	}
 
+	legend + .description,
 	input[type="checkbox"] + label + .description {
 		margin: -0.5em 0 1em;
 	}
@@ -68,7 +68,7 @@
 
 
 	<label for="site_name">Network Title</label>
-	<input name="site_name" type="text" id="site_name" class="regular-text" value="wordpress-multi-stable Sites" />
+	<input name="site_name" type="text" id="site_name" class="regular-text" value="" />
 
 	<label for="admin_email">Network Admin Email</label>
 	<input name="admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="" />
@@ -77,30 +77,34 @@
 	</p>
 
 
-
 	<h2>Registration Settings</h2>
 
 	<fieldset>
 		<legend class="screen-reader-text">New registrations settings</legend>
-		<label><input name="registration" type="radio" id="registration1" value="none" checked='checked' /> Registration is disabled.</label><br />
-		<label><input name="registration" type="radio" id="registration2" value="user" /> User accounts may be registered.</label><br />
-		<label><input name="registration" type="radio" id="registration3" value="blog" /> Logged in users may register new sites.</label><br />
-		<label><input name="registration" type="radio" id="registration4" value="all" /> Both sites and user accounts can be registered.</label>
+
 		<p class="description">If registration is disabled, please set <code>NOBLOGREDIRECT</code> in <code>wp-config.php</code> to a URL you will redirect visitors to if they visit a non-existent site.</p>
+
+		<input name="registration" type="radio" id="registration1" value="none" checked='checked' />
+		<label for="registration1">Registration is disabled.</label><br />
+
+		<input name="registration" type="radio" id="registration2" value="user" />
+		<label for="registration2">User accounts may be registered.</label><br />
+
+		<input name="registration" type="radio" id="registration3" value="blog" />
+		<label for="registration3">Logged in users may register new sites.</label><br />
+
+		<input name="registration" type="radio" id="registration4" value="all" />
+		<label for="registration4">Both sites and user accounts can be registered.</label>
+
 	</fieldset>
 
 
-
-	<label>
-		<input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes" checked='checked' />
-		Send the network admin an email notification every time someone registers a site or user account.
-	</label><br>
+	<input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes" checked='checked' />
+	<label for="registrationnotification">Send the network admin an email notification every time someone registers a site or user account.</label><br>
 
 
-	<label>
-		<input name="add_new_users" type="checkbox" id="add_new_users" value="1" />
-		Allow site administrators to add new users to their site via the "Users &rarr; Add New" page.
-	</label><br>
+	<input name="add_new_users" type="checkbox" id="add_new_users" value="1" />
+	<label for="add_new_users">Allow site administrators to add new users to their site via the "Users &rarr; Add New" page.</label><br>
 
 
 	<label for="illegal_names">Banned Names</label>
@@ -108,7 +112,6 @@
 	<p class="description" id="illegal-names-desc">
 		Users are not allowed to register these sites. Separate names by spaces.
 	</p>
-
 
 
 	<label for="limited_email_domains">Limited Email Registrations</label>
@@ -149,7 +152,6 @@ We hope you enjoy your new site. Thanks!
 	</p>
 
 
-
 	<label for="welcome_user_email">Welcome User Email</label>
 	<textarea name="welcome_user_email" id="welcome_user_email" aria-describedby="welcome-user-email-desc" rows="5" cols="45" class="large-text">
 Howdy USERNAME,
@@ -184,13 +186,11 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 	</p>
 
 
-
 	<label for="first_comment">First Comment</label>
 	<textarea name="first_comment" id="first_comment" aria-describedby="first-comment-desc" rows="5" cols="45" class="large-text"></textarea>
 	<p class="description" id="first-comment-desc">
 		The first comment on a new site.
 	</p>
-
 
 
 	<label for="first_comment_author">First Comment Author</label>
@@ -207,7 +207,6 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 	</p>
 
 
-
 	<label for="first_comment_url">First Comment URL</label>
 	<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="" />
 	<p class="description" id="first-comment-url-desc">
@@ -215,17 +214,15 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 	</p>
 
 
-
 	<h2>Upload Settings</h2>
 
-	<label>
-		<input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"/>
-		Limit total size of files uploaded to </label><label><input name="blog_upload_space" type="number" min="0" style="width: 100px" id="blog_upload_space" aria-describedby="blog-upload-space-desc" value="100" /> MB
-	</label><br />
-	<p class="screen-reader-text" id="blog-upload-space-desc">
-		Size in megabytes
-	</p>
 
+	<input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"/>
+	<label for="upload_space_check_disabled">Limit total size of files uploaded: enter the amount of Megabytes in the field below</label><br />
+
+
+	<label for="blog_upload_space">Total size of files uploaded in Megabytes</label>
+	<input name="blog_upload_space" type="number" min="0" style="width: 100px" id="blog_upload_space" value="100" />
 
 
 	<label for="upload_filetypes">Upload file types</label>
@@ -235,13 +232,8 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 	</p>
 
 
-
-	<label for="fileupload_maxk">Max upload file size</label>
-	<input name="fileupload_maxk" type="number" min="0" style="width: 100px" id="fileupload_maxk" aria-describedby="fileupload-maxk-desc" value="1500" /> KB
-	<p class="screen-reader-text" id="fileupload-maxk-desc">
-		Size in kilobytes
-	</p>
-
+	<label for="fileupload_maxk">Max upload file size in Kilobytes</label>
+	<input name="fileupload_maxk" type="number" min="0" style="width: 100px" id="fileupload_maxk" value="1500" />
 
 
 	<h2>Language Settings</h2>
@@ -350,10 +342,10 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 
 	<fieldset>
 		<legend>Enable administration menus</legend>
-		<label>
-			<input type='checkbox' name='menu_items[plugins]' value='1' />
-			Plugins
-		</label>
+
+		<input type='checkbox' name='menu_items[plugins]' id="menu_items[plugins]" value='1' />
+		<label for="menu_items[plugins]">Plugins</label>
+
 	</fieldset>
 
 </form>
