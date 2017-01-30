@@ -63,31 +63,28 @@
 
 <form>
 
-	<label for="blogname">Site Title</label>
+	<label for="blogname">Site title</label>
 	<input name="blogname" type="text" id="blogname" value="" class="regular-text">
 
 	<label for="blogdescription">Tagline</label>
 	<input name="blogdescription" type="text" id="blogdescription" aria-describedby="tagline-description" value="" class="regular-text">
 	<p class="description" id="tagline-description">In a few words, explain what this site is about.</p>
 
-	<label for="siteurl">WordPress Address (URL)</label>
+	<label for="siteurl">WordPress address (URL)</label>
 	<input name="siteurl" type="url" id="siteurl" value="" class="regular-text code">
 
-	<label for="home">Site Address (URL)</label>
+	<label for="home">Site address (URL)</label>
 	<input name="home" type="url" id="home" aria-describedby="home-description" value="" class="regular-text code">
 	<p class="description" id="home-description">Enter the address here if you <a href="https://codex.wordpress.org/Giving_WordPress_Its_Own_Directory">want your site home page to be different from your WordPress installation directory.</a></p>
 
-	<label for="admin_email">Email Address </label>
+	<label for="admin_email">Email address </label>
 	<input name="admin_email" type="email" id="admin_email" aria-describedby="admin-email-description" value="" class="regular-text ltr">
 	<p class="description" id="admin-email-description">This address is used for admin purposes, like new user notification.</p>
 
-	<fieldset>
-		<legend>Membership</legend>
-		<input name="users_can_register" type="checkbox" id="users_can_register" value="1">
-		<label for="users_can_register">Anyone can register</label>
-	</fieldset>
+	<input name="users_can_register" type="checkbox" id="users_can_register" value="1">
+	<label for="users_can_register">Membership: anyone can register</label><br>
 
-	<label for="default_role">New User Default Role</label>
+	<label for="default_role">New user default role</label>
 	<select name="default_role" id="default_role">
 		<option selected="selected" value="subscriber">Subscriber</option>
 		<option value="contributor">Contributor</option>
@@ -96,7 +93,7 @@
 		<option value="administrator">Administrator</option>
 	</select>
 
-	<label for="WPLANG">Site Language</label>
+	<label for="WPLANG">Site language</label>
 	<select name="WPLANG" id="WPLANG">
 		<optgroup label="Installed">
 			<option value="" lang="en" data-installed="1" selected="selected">English (United States)</option>
@@ -725,7 +722,11 @@
 
 		<label for="date_format_custom">Custom date format:</label>
 		<input type="text" name="date_format_custom" id="date_format_custom" aria-describedby="date-format-custom-description" value="F j, Y" class="small-text">
+
 		<p class="description" id="date-format-custom-description">Example: <span class="example">January 16, 2017</span><span class="spinner"></span></p>
+
+		<p class="date-time-doc"><a href="https://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.</p>
+
 	</fieldset>
 
 	<fieldset>
@@ -745,11 +746,14 @@
 
 		<label for="time_format_custom">Custom time format:</label>
 		<input type="text" name="time_format_custom" id="time_format_custom" aria-describedby="time-format-custom-description" value="g:i a" class="small-text">
+
 		<p class="description" id="time-format-custom-description">Example: <span class="example">6:54 pm</span><span class="spinner"></span></p>
+
 		<p class="date-time-doc"><a href="https://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.</p>
+
 	</fieldset>
 
-	<label for="start_of_week">Week Starts On</label>
+	<label for="start_of_week">Week starts on</label>
 	<select name="start_of_week" id="start_of_week">
 		<option value="0">Sunday</option>
 		<option value="1" selected="selected">Monday</option>
@@ -762,7 +766,7 @@
 
 </form>
 
-<h2>Other settings</h2>
+<h2>Other settings from other pages (for testing purposes)</h2>
 
 <form>
 
@@ -772,15 +776,13 @@
 	<label for="posts_per_rss">Number of most recent items shown on Syndication feeds</label>
 	<input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="10" class="small-text">
 
-	<fieldset>
-		<legend>Search Engine Visibility</legend>
-		<input name="blog_public" type="checkbox" id="blog_public" aria-describedby="blog-public-description" value="0">
-		<label for="blog_public">Discourage search engines from indexing this site</label>
-		<p class="description" id="blog-public-description">It is up to search engines to honor this request.</p>
-	</fieldset>
+	<input name="blog_public" type="checkbox" id="blog_public" aria-describedby="blog-public-description" value="0">
+	<label for="blog_public">Discourage search engines from indexing this site</label>
+	<p class="description" id="blog-public-description">It is up to search engines to honor this request.</p>
 
-	<label for="ping_sites">When you publish a new post, WordPress automatically notifies the following site update services. For more about this, see <a href="https://codex.wordpress.org/Update_Services">Update Services</a> on the Codex. Separate multiple service URLs with line breaks.</label>
-	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3">http://rpc.pingomatic.com/</textarea>
+	<label for="ping_sites">When you publish a new post, WordPress automatically notifies the following site update services</label>
+	<textarea name="ping_sites" id="ping_sites" aria-describedby="ping-sites-description" class="large-text code" rows="3">http://rpc.pingomatic.com/</textarea>
+	<p class="description" id="ping-sites-description">Separate multiple service URLs with line breaks. For more about this, <a href="https://codex.wordpress.org/Update_Services">see Update Services on the Codex</a>.</p>
 
 </form>
 

@@ -64,23 +64,18 @@
 
 <form>
 
-	<h2>Operational Settings</h2>
-
-
-	<label for="site_name">Network Title</label>
+	<label for="site_name">Network title</label>
 	<input name="site_name" type="text" id="site_name" class="regular-text" value="" />
 
-	<label for="admin_email">Network Admin Email</label>
+	<label for="admin_email">Network admin email</label>
 	<input name="admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="" />
 	<p class="description" id="admin-email-desc">
 		This email address will receive notifications. Registration and support emails will also come from this address.
 	</p>
 
 
-	<h2>Registration Settings</h2>
-
 	<fieldset>
-		<legend class="screen-reader-text">New registrations settings</legend>
+		<legend>New registrations settings</legend>
 
 		<p class="description">If registration is disabled, please set <code>NOBLOGREDIRECT</code> in <code>wp-config.php</code> to a URL you will redirect visitors to if they visit a non-existent site.</p>
 
@@ -99,40 +94,46 @@
 	</fieldset>
 
 
-	<input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes" checked='checked' />
-	<label for="registrationnotification">Send the network admin an email notification every time someone registers a site or user account.</label><br>
+	<fieldset>
+		<legend>Other registration settings</legend>
+
+		<input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes" checked='checked' />
+		<label for="registrationnotification">Send the network admin an email notification every time someone registers a site or user account.</label><br>
 
 
-	<input name="add_new_users" type="checkbox" id="add_new_users" value="1" />
-	<label for="add_new_users">Allow site administrators to add new users to their site via the "Users &rarr; Add New" page.</label><br>
+		<input name="add_new_users" type="checkbox" id="add_new_users" value="1" />
+		<label for="add_new_users">Allow site administrators to add new users to their site via the "Users &rarr; Add New" page.</label><br>
 
 
-	<label for="illegal_names">Banned Names</label>
-	<input name="illegal_names" type="text" id="illegal_names" aria-describedby="illegal-names-desc" class="large-text" value="www web root admin main invite administrator files" size="45" />
-	<p class="description" id="illegal-names-desc">
-		Users are not allowed to register these sites. Separate names by spaces.
-	</p>
+		<label for="illegal_names">Banned names</label>
+		<input name="illegal_names" type="text" id="illegal_names" aria-describedby="illegal-names-desc" class="large-text" value="www web root admin main invite administrator files" size="45" />
+		<p class="description" id="illegal-names-desc">
+			Users are not allowed to register these sites. Separate names by spaces.
+		</p>
 
 
-	<label for="limited_email_domains">Limited Email Registrations</label>
-	<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5"></textarea>
-	<p class="description" id="limited-email-domains-desc">
-		If you want to limit site registrations to certain domains. One domain per line.
-	</p>
+		<label for="limited_email_domains">Limited email registrations</label>
+		<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5"></textarea>
+		<p class="description" id="limited-email-domains-desc">
+			If you want to limit site registrations to certain domains. One domain per line.
+		</p>
 
 
 
-	<label for="banned_email_domains">Banned Email Domains</label>
-	<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5"></textarea>
-	<p class="description" id="banned-email-domains-desc">
-		If you want to ban domains from site registrations. One domain per line.
-	</p>
+		<label for="banned_email_domains">Banned email domains</label>
+		<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5"></textarea>
+		<p class="description" id="banned-email-domains-desc">
+			If you want to ban domains from site registrations. One domain per line.
+		</p>
+
+	</fieldset>
 
 
-	<h2>New Site Settings</h2>
+	<fieldset>
+		<legend>New site settings</legend>
 
-	<label for="welcome_email">Welcome Email</label>
-	<textarea name="welcome_email" id="welcome_email" aria-describedby="welcome-email-desc" rows="5" cols="45" class="large-text">
+		<label for="welcome_email">Welcome email</label>
+		<textarea name="welcome_email" id="welcome_email" aria-describedby="welcome-email-desc" rows="5" cols="45" class="large-text">
 Howdy USERNAME,
 
 Your new SITE_NAME site has been successfully set up at:
@@ -147,13 +148,13 @@ Log in here: BLOG_URLwp-login.php
 We hope you enjoy your new site. Thanks!
 
 --The Team @ SITE_NAME</textarea>
-	<p class="description" id="welcome-email-desc">
-		The welcome email sent to new site owners.
-	</p>
+		<p class="description" id="welcome-email-desc">
+			The welcome email sent to new site owners.
+		</p>
 
 
-	<label for="welcome_user_email">Welcome User Email</label>
-	<textarea name="welcome_user_email" id="welcome_user_email" aria-describedby="welcome-user-email-desc" rows="5" cols="45" class="large-text">
+		<label for="welcome_user_email">Welcome user email</label>
+		<textarea name="welcome_user_email" id="welcome_user_email" aria-describedby="welcome-user-email-desc" rows="5" cols="45" class="large-text">
 Howdy USERNAME,
 
 Your new account is set up.
@@ -166,77 +167,80 @@ LOGINLINK
 Thanks!
 
 --The Team @ SITE_NAME</textarea>
-	<p class="description" id="welcome-user-email-desc">
-		The welcome email sent to new users.
-	</p>
+		<p class="description" id="welcome-user-email-desc">
+			The welcome email sent to new users.
+		</p>
 
 
-	<label for="first_post">First Post</label>
-	<textarea name="first_post" id="first_post" aria-describedby="first-post-desc" rows="5" cols="45" class="large-text">
+		<label for="first_post">First post</label>
+		<textarea name="first_post" id="first_post" aria-describedby="first-post-desc" rows="5" cols="45" class="large-text">
 Welcome to %s. This is your first post. Edit or delete it, then start blogging!</textarea>
-	<p class="description" id="first-post-desc">
-		The first post on a new site.
-	</p>
+		<p class="description" id="first-post-desc">
+			The first post on a new site.
+		</p>
 
 
-	<label for="first_page">First Page</label>
-	<textarea name="first_page" id="first_page" aria-describedby="first-page-desc" rows="5" cols="45" class="large-text"></textarea>
-	<p class="description" id="first-page-desc">
-		The first page on a new site.
-	</p>
+		<label for="first_page">First page</label>
+		<textarea name="first_page" id="first_page" aria-describedby="first-page-desc" rows="5" cols="45" class="large-text"></textarea>
+		<p class="description" id="first-page-desc">
+			The first page on a new site.
+		</p>
 
 
-	<label for="first_comment">First Comment</label>
-	<textarea name="first_comment" id="first_comment" aria-describedby="first-comment-desc" rows="5" cols="45" class="large-text"></textarea>
-	<p class="description" id="first-comment-desc">
-		The first comment on a new site.
-	</p>
+		<label for="first_comment">First comment</label>
+		<textarea name="first_comment" id="first_comment" aria-describedby="first-comment-desc" rows="5" cols="45" class="large-text"></textarea>
+		<p class="description" id="first-comment-desc">
+			The first comment on a new site.
+		</p>
 
 
-	<label for="first_comment_author">First Comment Author</label>
-	<input type="text" size="40" name="first_comment_author" id="first_comment_author" aria-describedby="first-comment-author-desc" value="" />
-	<p class="description" id="first-comment-author-desc">
-		The author of the first comment on a new site.
-	</p>
+		<label for="first_comment_author">First comment author</label>
+		<input type="text" size="40" name="first_comment_author" id="first_comment_author" aria-describedby="first-comment-author-desc" value="" />
+		<p class="description" id="first-comment-author-desc">
+			The author of the first comment on a new site.
+		</p>
 
 
-	<label for="first_comment_email">First Comment Email</label>
-	<input type="text" size="40" name="first_comment_email" id="first_comment_email" aria-describedby="first-comment-email-desc" value="" />
-	<p class="description" id="first-comment-email-desc">
-		The email address of the first comment author on a new site.
-	</p>
+		<label for="first_comment_email">First comment email</label>
+		<input type="text" size="40" name="first_comment_email" id="first_comment_email" aria-describedby="first-comment-email-desc" value="" />
+		<p class="description" id="first-comment-email-desc">
+			The email address of the first comment author on a new site.
+		</p>
 
 
-	<label for="first_comment_url">First Comment URL</label>
-	<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="" />
-	<p class="description" id="first-comment-url-desc">
-		The URL for the first comment on a new site.
-	</p>
+		<label for="first_comment_url">First comment URL</label>
+		<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="" />
+		<p class="description" id="first-comment-url-desc">
+			The URL for the first comment on a new site.
+		</p>
+
+	</fieldset>
 
 
-	<h2>Upload Settings</h2>
+	<fieldset>
+		<legend>Upload settings</legend>
 
 
-	<input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"/>
-	<label for="upload_space_check_disabled">Limit total size of files uploaded: enter the amount of Megabytes in the field below</label><br />
+		<input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"/>
+		<label for="upload_space_check_disabled">Limit total size of files uploaded: enter the amount of megabytes in the field below</label><br />
 
 
-	<label for="blog_upload_space">Total size of files uploaded in Megabytes</label>
-	<input name="blog_upload_space" type="number" min="0" style="width: 100px" id="blog_upload_space" value="100" />
+		<label for="blog_upload_space">Total size of files uploaded in megabytes</label>
+		<input name="blog_upload_space" type="number" min="0" style="width: 100px" id="blog_upload_space" value="100" />
 
 
-	<label for="upload_filetypes">Upload file types</label>
-	<input name="upload_filetypes" type="text" id="upload_filetypes" aria-describedby="upload-filetypes-desc" class="large-text" value="jpg jpeg png gif mov avi mpg 3gp 3g2 midi mid pdf doc ppt odt pptx docx pps ppsx xls xlsx key mp3 ogg wma m4a wav mp4 m4v webm ogv wmv flv" size="45" />
-	<p class="description" id="upload-filetypes-desc">
-		Allowed file types. Separate types by spaces.
-	</p>
+		<label for="upload_filetypes">Upload file types</label>
+		<input name="upload_filetypes" type="text" id="upload_filetypes" aria-describedby="upload-filetypes-desc" class="large-text" value="jpg jpeg png gif mov avi mpg 3gp 3g2 midi mid pdf doc ppt odt pptx docx pps ppsx xls xlsx key mp3 ogg wma m4a wav mp4 m4v webm ogv wmv flv" size="45" />
+		<p class="description" id="upload-filetypes-desc">
+			Allowed file types. Separate types by spaces.
+		</p>
 
 
-	<label for="fileupload_maxk">Max upload file size in Kilobytes</label>
-	<input name="fileupload_maxk" type="number" min="0" style="width: 100px" id="fileupload_maxk" value="1500" />
+		<label for="fileupload_maxk">Max upload file size in kilobytes</label>
+		<input name="fileupload_maxk" type="number" min="0" style="width: 100px" id="fileupload_maxk" value="1500" />
 
+	</fieldset>
 
-	<h2>Language Settings</h2>
 
 	<label for="WPLANG">Default Language</label>
 	<select name="WPLANG" id="WPLANG">
@@ -338,15 +342,20 @@ Welcome to %s. This is your first post. Edit or delete it, then start blogging!<
 	</select>
 
 
-	<h2>Menu Settings</h2>
-
 	<fieldset>
-		<legend>Enable administration menus</legend>
+		<legend>Menu settings</legend>
 
 		<input type='checkbox' name='menu_items[plugins]' id="menu_items[plugins]" value='1' />
-		<label for="menu_items[plugins]">Plugins</label>
+		<label for="menu_items[plugins]">Enable Plugins menu</label><br>
+
+		<input type='checkbox' name='menu_items[somethingelse]' id="menu_items[somethingelse]" value='1' />
+		<label for="menu_items[somethingelse]">Enable Something else</label>
 
 	</fieldset>
+
+	<p>
+		Note: this fieldset gets printed out only when there is more than 1 field.
+	</p>
 
 </form>
 

@@ -130,30 +130,27 @@
 
 	</fieldset>
 
+
 	<fieldset>
-		<legend>Email me whenever</legend>
+		<legend>Notifications</legend>
 
 		<input name="comments_notify" type="checkbox" id="comments_notify" value="1">
-		<label for="comments_notify">Anyone posts a comment</label><br>
+		<label for="comments_notify">Email me when anyone posts a comment</label><br>
 
 		<input name="moderation_notify" type="checkbox" id="moderation_notify" value="1">
-		<label for="moderation_notify">A comment is held for moderation</label>
+		<label for="moderation_notify">Email me when a comment is held for moderation</label><br>
 
 	</fieldset>
 
-	<fieldset>
-		<legend>Before a comment appears</legend>
-
-		<input name="comment_moderation" type="checkbox" id="comment_moderation" value="1">
-		<label for="comment_moderation">Comment must be manually approved</label><br>
-
-		<input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1">
-		<label for="comment_whitelist">Comment author must have a previously approved comment</label>
-
-	</fieldset>
 
 	<fieldset>
 		<legend>Comment Moderation</legend>
+
+		<input name="comment_moderation" type="checkbox" id="comment_moderation" value="1">
+		<label for="comment_moderation">Before a comment appears, comment must be manually approved</label><br>
+
+		<input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1">
+		<label for="comment_whitelist">Before a comment appears, comment author must have a previously approved comment</label><br>
 
 		<label for="comment_max_links">Number of links in a comment after which it will be held in the moderation queue</label>
 		<input name="comment_max_links" type="number" step="1" min="0" id="comment_max_links" aria-describedby="comment-max-link-description" value="2" class="small-text">
@@ -165,29 +162,22 @@
 
 	</fieldset>
 
-	<fieldset>
-		<legend>Comment Blacklist</legend>
 
-		<label for="blacklist_keys">Blacklist words</label>
-		<textarea name="blacklist_keys" rows="10" cols="50" id="blacklist_keys" aria-describedby="blacklist-keys-description" class="large-text code"></textarea>
-		<p class="description" id="blacklist-keys-description">When a comment contains any of these words in its content, name, URL, email, or IP, it will be put in the trash. One word or IP per line. It will match inside words, so “press” will match “WordPress”.</p>
+	<label for="blacklist_keys">Blacklist words</label>
+	<textarea name="blacklist_keys" rows="10" cols="50" id="blacklist_keys" aria-describedby="blacklist-keys-description" class="large-text code"></textarea>
+	<p class="description" id="blacklist-keys-description">When a comment contains any of these words in its content, name, URL, email, or IP, it will be put in the trash. One word or IP per line. It will match inside words, so “press” will match “WordPress”.</p>
 
-	</fieldset>
 
 	<h2 class="title">Avatars</h2>
 
-	<p>An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site.</p>
+
+	<input type="checkbox" id="show_avatars" aria-describedby="show-avatars-description" name="show_avatars" value="1">
+	<label for="show_avatars">Show Avatars</label>
+	<p class="description" id="show-avatars-description">An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site.</p>
+
 
 	<fieldset>
-		<legend>Avatar Display</legend>
-
-		<input type="checkbox" id="show_avatars" name="show_avatars" value="1">
-		<label for="show_avatars">Show Avatars</label>
-
-	</fieldset>
-
-	<fieldset>
-		<legend>Maximum Rating</legend>
+		<legend>Avatar Maximum Rating</legend>
 
 		<input type="radio" name="avatar_rating" id="avatar-rating-01" value="G" checked="checked">
 		<label for="avatar-rating-01">G — Suitable for all audiences</label><br>
